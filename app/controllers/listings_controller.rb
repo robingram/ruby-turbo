@@ -33,7 +33,7 @@ class ListingsController < ApplicationController
   # PATCH/PUT /listings/1 or /listings/1.json
   def update
     if @listing.update(listing_params)
-      redirect_to listing_url(@listing), notice: "Listing was successfully updated."
+      redirect_to listings_url, notice: "Listing was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
