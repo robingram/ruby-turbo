@@ -1,4 +1,4 @@
 <h3 class="font-bold text-xl my-4">Enquiries</h3>
 <div id="enquiries">
-  <%= render partial: "enquiries/enquiry_item", collection: @listing.enquiries, as: :enquiry if current_user&.admin %>
+  <%= render partial: "enquiries/enquiry_item", collection: @listing.enquiries, as: :enquiry if current_user == @listing.user %>
 </div>
