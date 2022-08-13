@@ -12,10 +12,13 @@
   </head>
 
   <body>
+    <% if notice.present? %>
+      <div class="py-2 px-3 bg-green-50 m-5 text-green-500 font-medium rounded-lg text-center" id="notice"><%= notice %></div>
+    <% end %>
+    <% if alert.present? %>
+      <div class="py-2 px-3 bg-red-50 m-5 text-red-500 font-medium rounded-lg text-center" id="alert"><%= alert %></div>
+    <% end %>
     <main class="container mx-auto mt-28 px-5 flex">
-      <div class="notice"><%= notice %></div>
-      <div class="alert"><%= alert %></div>
-
       <%= yield %>
     </main>
   </body>
