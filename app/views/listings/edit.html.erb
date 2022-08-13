@@ -5,6 +5,6 @@
     <%= render "form", listing: @listing %>
 
     <%= link_to "Cancel", listings_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Show this listing", @listing, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Show this listing", @listing, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium", data: { turbo_frame: "_top" } %>
   <% end %>
 </div>
