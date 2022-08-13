@@ -46,7 +46,10 @@ class ListingsController < ApplicationController
   def destroy
     @listing.destroy
 
-    redirect_to listings_url, notice: "Listing was successfully destroyed."
+    respond_to do |format|
+      format.html { redirect_to listings_url, notice: "Listing was successfully destroyed." }
+      format.turbo_stream
+    end
   end
 
 private

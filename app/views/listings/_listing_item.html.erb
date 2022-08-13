@@ -19,6 +19,7 @@
       <div>
         <%= link_to "Show this listing", listing, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium", data: { turbo_frame: "_top" } %>
         <%= link_to 'Edit this listing', edit_listing_path(listing), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+        <%= button_to 'Delete this listing', listing_path(listing), method: :delete, class: "rounded-lg py-3 ml-2 px-5 bg-red-100 inline-block font-medium", form_class: "inline-block" %>
       </div>
     </div>
   <% end %>
