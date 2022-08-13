@@ -23,27 +23,19 @@ class EnquiriesController < ApplicationController
   def create
     @enquiry = Enquiry.new(enquiry_params)
 
-    respond_to do |format|
-      if @enquiry.save
-        format.html { redirect_to enquiry_url(@enquiry), notice: "Enquiry was successfully created." }
-        format.json { render :show, status: :created, location: @enquiry }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @enquiry.errors, status: :unprocessable_entity }
-      end
+    if @enquiry.save
+      redirect_to enquiry_url(@enquiry), notice: "Enquiry was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /enquiries/1 or /enquiries/1.json
   def update
-    respond_to do |format|
-      if @enquiry.update(enquiry_params)
-        format.html { redirect_to enquiry_url(@enquiry), notice: "Enquiry was successfully updated." }
-        format.json { render :show, status: :ok, location: @enquiry }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @enquiry.errors, status: :unprocessable_entity }
-      end
+    if @enquiry.update(enquiry_params)
+      redirect_to enquiry_url(@enquiry), notice: "Enquiry was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -51,10 +43,7 @@ class EnquiriesController < ApplicationController
   def destroy
     @enquiry.destroy
 
-    respond_to do |format|
-      format.html { redirect_to enquiries_url, notice: "Enquiry was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to enquiries_url, notice: "Enquiry was successfully destroyed."
   end
 
   private
