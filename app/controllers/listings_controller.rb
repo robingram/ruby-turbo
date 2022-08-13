@@ -24,7 +24,10 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
 
     if @listing.save
-      redirect_to listing_url(@listing), notice: "Listing was successfully created."
+      respond_to do |format|
+        format.html { redirect_to listings_url, notice: "Listing was successfully created." }
+        format.turbo_stream
+      end
     else
       render :new, status: :unprocessable_entity
     end

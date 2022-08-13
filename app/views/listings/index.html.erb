@@ -1,8 +1,11 @@
 <div class="w-full">
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Listings</h1>
-    <%= link_to 'New listing', new_listing_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <%= link_to 'New listing', new_listing_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium", data: { turbo_frame: dom_id(Listing.new) } %>
   </div>
+
+  <%= turbo_frame_tag dom_id(Listing.new) do %>
+  <% end %>
 
   <div id="listings" class="min-w-full">
     <%= render partial: "listing_item", collection: @listings, as: :listing %>
