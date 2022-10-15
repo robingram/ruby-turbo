@@ -7,6 +7,10 @@
   <%= turbo_frame_tag dom_id(Listing.new) do %>
   <% end %>
 
+  <%= turbo_frame_tag "listing_stats", src: stats_listings_path do %>
+    <p>Loading stats...</p>
+  <% end %>
+
   <div id="listings" class="min-w-full">
     <%= render partial: "listing_item", collection: @listings, as: :listing %>
   </div>

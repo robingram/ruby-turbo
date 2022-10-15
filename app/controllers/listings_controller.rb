@@ -52,6 +52,10 @@ class ListingsController < ApplicationController
     end
   end
 
+  def stats
+    sleep 10
+  end
+
 private
 
   # Use callbacks to share common setup or constraints between actions.
